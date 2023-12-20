@@ -272,10 +272,63 @@
 
 //-------------------------------------------------------------------------------------------------------//
 
+//--------------------------------------Change section---------------------------------------------------//
+document.addEventListener("DOMContentLoaded", function () {
+  var headerLinks = document.querySelectorAll('.nav-link');
+  var portfolioSections = document.querySelectorAll('.portfolio-section');
+  var overlay = document.querySelector('.overlay');
 
-//----------------------------------content box creation on link hover-----------------------------------//
+  var isAlternativeView = false;
 
-// ...
+  headerLinks.forEach(function (link) {
+      link.addEventListener('click', function (event) {
+          event.preventDefault();
+          var targetId = this.getAttribute('href').substring(1);
+
+          headerLinks.forEach(function (link) {
+              link.classList.remove('active');
+          });
+          this.classList.add('active');
+
+          portfolioSections.forEach(function (section) {
+              section.classList.remove('active', 'fade-in', 'fade-out');
+          });
+
+          var targetSection = document.getElementById(targetId);
+          document.body.classList.add('fade-out');
+
+          // Triggering the fade-out animation with screen darkening
+          overlay.classList.add('darken');
+
+          setTimeout(function () {
+              portfolioSections.forEach(function (section) {
+                  section.classList.remove('fade-in', 'fade-out');
+              });
+
+              targetSection.classList.add('active', 'fade-in');
+
+              // Check if it's the alternative view
+              if (isAlternativeView) {
+                  // Move contents to the top
+                  document.body.classList.add('alternative-view');
+                  setTimeout(function () {
+                      // Remove alternative view styles after animation
+                      document.body.classList.remove('alternative-view');
+                  }, 500); // Adjust the duration as needed
+              }
+
+              document.body.classList.remove('fade-out');
+              overlay.classList.remove('darken');
+          }, 500); // 500 milliseconds, adjust as needed
+      });
+  });
+});
+
+//-------------------------------------------------------------------------------------------------------//
+
+/*----------------------------------content box creation on link hover-----------------------------------
+
+
 
 // Function to create and show content box
 var showContentBox = function (content) {
@@ -333,6 +386,6 @@ links.forEach(function (link) {
 });
 
 
-//-------------------------------------------------------------------------------------------------------//
-
+-------------------------------------------------------------------------------------------------------*/
 })();
+

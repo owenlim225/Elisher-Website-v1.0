@@ -1,26 +1,43 @@
-body {
-    margin: 0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end; 
-    height: 100vh;
+/* Hide scrollbar globally */
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
-canvas {
-    width: 100%;
-    height: 100%;
-  }
+/* Optional: handle on hover */
+::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+/* Smooth scrolling */
+.smooth-scroll {
+    scroll-behavior: smooth;
+}
+
+/* Add this for a subtle glide effect */
+html {
+    scroll-behavior: smooth;
+}
+
+h1 {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: bold;}
+
+h2 {
+    font-family: 'Cabin', sans-serif;
+    font-weight: bold;}
+
+p {
+    font-family: 'Cabin', sans-serif;
+}
+
+a {
+    font-family: 'Cabin', sans-serif;}
+
+
+
 
 .wrap {
-    overflow: hidden;
-    position: relative;
-    height: 100vh;
-    background-image: linear-gradient(0deg, #cc0c32 20%, #ff6b89 80%);
-  }
-  
-  body {
     position: relative;
     margin: 0;
     overflow: hidden;
@@ -29,6 +46,7 @@ canvas {
     align-items: center;
     justify-content: flex-end;
     height: 100vh;
+    background-image: linear-gradient(0deg, #cc0c32 20%, #ff6b89 80%);
 }
 
 #bubble {
@@ -37,14 +55,15 @@ canvas {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1; /* Ensure the canvas is behind other content */
+    z-index: -1;
 }
 
 .row-container {
     display: flex;
     flex-direction: row;
     align-items: center;
-    z-index: 1; /* Ensure the links are above the canvas */
+    margin-bottom: 70px;
+    z-index: 1;
 }
 
 .category {
@@ -52,58 +71,352 @@ canvas {
     width: 150px;
     padding: 20px;
     margin: 20px;
+    opacity: 80%;
     text-align: center;
     color: white;
     text-decoration: none;
     font-size: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    transition: font-size 0.9s ease, opacity 0.3s ease, transform 0.6s ease, background-color 0.6s ease;
+    transition: font-size 0.6s ease, opacity 0.6s ease, transform 0.6s ease, background-color 0.6s ease, box-shadow 0.6s ease;
     position: relative;
-    animation-name: floating;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
+    animation: floating 3s infinite ease-in-out;
+    transform: translate(-20%, -2%);
 }
 
 .category:hover {
-    opacity: 0.8;
+    opacity: 90%;
     color: #FFD700;
-    border: 5px ridge;
+    border: 10px ridge;
     border-image-slice: 1;
-    background-color: #00a2ff;
-    animation: lavaAnimation 5s infinite linear; 
+    background-color: #0051ff;
+    animation: lavaAnimation 5s infinite linear, floating 3s infinite ease-in-out reverse; 
     transform: translateY(5%) translateX(-3%) scale(1.1); 
     box-shadow: inset 0 0 10px rgba(10, 0, 0, 0.808);
 }
 
-/* Style for the content box */
+
+.sherwin {
+    position: fixed;
+    left: 5%;
+    top: 10%;
+    height: auto;
+    width: 350px;
+    padding: 20px;
+    margin: 20px;
+    opacity: 60%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: font-size 0.6s ease, opacity 0.6s ease, transform 0.6s ease, background-color 0.6s ease, box-shadow 0.6s ease border 0.6s ease;
+    animation: floating 3s infinite ease-in-out;
+}
+
+.sherwin img {
+    width: 100%; /* Ensure the image takes the full width of the container */
+    height: auto;
+}
+
+.sherwin:hover {
+    opacity: 100%;
+    background-color: #cc0c32;
+    color: #FFD700;
+    border: 15px ridge transparent;
+    border-image: linear-gradient(90deg, #ffd900, #ff7300, #ffe54f, #ff7300);
+    border-image-slice: 1;
+    animation: lavaAnimation 5s infinite linear, floating 3s infinite ease-in-out reverse; 
+    transform: translateY(5%) translateX(-3%) scale(1.1); 
+    box-shadow: inset 0 0 10px rgba(10, 0, 0, 0.808);
+    transition: font-size 0.6s ease, opacity 0.6s ease, transform 0.6s ease, background-color 0.6s ease, box-shadow 0.6s ease, border 0.6s ease;
+}   
+
+.highlight{
+    color: #0051ff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.highlight:hover{
+    color: #0051ff;
+    text-shadow: 0 0 5px #FFD700;
+}
+
+.about {
+    display: block;
+    width: 50%;
+    padding: 30px;
+    margin: 20px;
+    opacity: 85%;
+    font-size: 40px;
+    text-align: left;
+    color: #ffe9e9;
+    text-decoration: none;
+    overflow-y: scroll;
+    height: 80vh;
+    letter-spacing: 1.2px;
+    line-height: 1.5;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    /* Positioning on the right side */
+    position: fixed;
+    right: 0;
+    top: 10%; /* Adjust this value to center vertically if needed */
+    transform: translate(-10%, -2%);
+    scroll-snap-type: y mandatory;
+    scroll-snap-points-y: repeat(50%);
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+
+}
+
+
+.about ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+.about ul li {
+    margin-left: 2em;
+    text-decoration: none;
+  }
+
+.about ul li:hover {
+    text-decoration: none;
+}
+
+.about h1 {
+    font-size: 50px; /* Initial font size */
+    transition: font-size 0.6s ease;
+}
+
+.about:hover h1 {
+    font-size: 53px; /* Increase font size by 1% on hover */
+}
+
+.about:hover {
+    color: #ffe9e9;
+    opacity: 100%;
+    transition: color 0.6s ease, opacity 0.6s ease, transform 0.6s ease;
+}
+
+
+.hover_increase :hover {
+    color: #ffe9e9;
+    opacity: 100%;
+    font-size: 41px;
+    transition: font-size 0.6s ease, opacity 0.6s ease, transform 0.6s ease, background-color 0.6s ease, box-shadow 0.6s ease;
+    position: relative;
+
+}
+
+.about ul li:nth-child(1):hover {
+    color: #1db100;
+}
+
+.about ul li:nth-child(2):hover {
+    color: #00e1ff;
+}
+
+.about ul   li:nth-child(3):hover {
+    color: #6200ff;
+}
+
+.about ul li:nth-child(4):hover {
+    color: #ff7b00;
+}
+
+.about ul li:nth-child(5):hover {
+    color: #4530ff;
+}
+
+.about ul li:nth-child(6):hover {
+    color: #e5ff00;
+}
+
+  
+/*
 .content-box {
     position: absolute;
-    width: 772.5px; /* Increased by another 20% */
-    height: 428.25px; /* Increased by another 20% */
+    width: 772.5px;
+    height: 428.25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
     z-index: 999; 
     border-image-slice: 1;
     background-color: #00a2ff;
     box-shadow: inset 0 0 10px rgba(10, 0, 0, 0.808);
-  
-    /* Additional styles for centering the box */
     transform: translate(-50%, -65%);
 }
+*/
 
-  
 .color {
-    background-color: #0291ca;
+    background-color: #85acff;
+    opacity: 80%;
     box-shadow: inset 0 0 10px rgba(10, 0, 0, 0.5);
 }
 
-.copyright {
+.header-note {
+    font-family: 'Cabin', sans-serif;
+    font-weight: bold;
     text-align: center;
-    margin: 20px;
-    opacity: 50%;
+    opacity: 80%;
     font-size: 20px;
+    padding: 20px;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ff6b89;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    color: #ffd6d6;
+}
+
+.header-note a {
+    color: #ffd6d6;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.header-note a:hover {
+    color: #ffffff;
+    opacity: 100%;
+}
+
+
+.portfolio-section {
+    display: none;
+}
+
+.portfolio-section.active {
+    display: block;
+}
+
+.header-note a.active {
+    color: #ffffff;
+    opacity: 100%;
+}
+
+
+@media only screen and (max-width: 480px) {
+    .category {
+        font-size: 16px;
+        padding: 15px;
+    }
+
+    .content-box {
+        width: 90%;
+        max-width: none;
+    }
+}
+
+body {
+    opacity: 1;
+    transition: opacity 0.2s ease-out; /* Adjust the duration and timing function as needed */
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+body.alternative-view {
+    overflow: hidden; /* Hide scrollbars during alternative view animation */
+}
+
+.portfolio-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease; /* Adjust the duration and timing function as needed */
+}
+.portfolio-section.active {
+    display: block;
+    opacity: 1;
+}
+
+.portfolio-section.fade-in {
+    opacity: 1;
+}
+
+.portfolio-section.fade-out {
+    opacity: 0;
+}
+
+.darken {
+    background: rgba(0, 0, 0, 0.5); /* Adjust the opacity for the desired darkening effect */
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0); /* Initial transparent background */
+    pointer-events: none; /* Allow clicks to pass through initially */
+    transition: background 0.5s ease; /* Smooth transition for the background */
+}
+
+body.fade-out .overlay {
+    opacity: 1; /* Make it visible during the fade-out transition */
+}
+
+body.alternative-view .row-container {
+    transform: translateY(-100%);
+}
+
+body.alternative-view .category {
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .category {
+        font-size: 18px;
+        padding: 18px;
+    }
+
+    .content-box {
+        width: 70%;
+        max-width: none;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .category {
+        font-size: 20px;
+        padding: 20px;
+    }
+
+    .content-box {
+        width: 60%;
+        max-width: none;
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    .category {
+        font-size: 22px;
+        padding: 22px;
+    }
+
+    .content-box {
+        width: 50%;
+        max-width: none;
+    }
 }
 
 @keyframes floating {
@@ -134,19 +447,17 @@ canvas {
     0% {
         border-image-source: linear-gradient(90deg, #ffd900, #ff7300, #ffe54f, #ff7300);
     }
-    20% {
+    25% {
+        border-image-source: linear-gradient(90deg, #ff7300, #e78b00, #ffbb00, #ff7300);
+    }
+    50% {
+        border-image-source: linear-gradient(90deg, #ff7300, #e78b00, #ffbb00, #ff7300);
+    }
+    75% {
         border-image-source: linear-gradient(90deg, #ff4800, #ff7300, #e78b00, #ffbb00);
     }
-    40% {
-        border-image-source: linear-gradient(90deg, #ffe555, #ff4800, #ff7300, #c7a900);
-    }
-    60% {
-        border-image-source: linear-gradient(90deg, #ff7300, #cfb41b, #ff4800, #ff7300);
-    }
-    80% {
-        border-image-source: linear-gradient(90deg, #ff4800, #d4bb28, #d37f00, #ff4800);
-    }
     100% {
-        border-image-source: linear-gradient(90deg, #ffd900, #ff7300, #ffe54f, #ffaa2a);
+        border-image-source: linear-gradient(90deg, #ffd900, #ff7300, #ffe54f, #ff7300);
     }
 }
+

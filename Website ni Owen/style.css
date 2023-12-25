@@ -35,7 +35,9 @@ a {
     font-family: 'Cabin', sans-serif;}
 
 
-
+body{
+    transition: background-color 0.5s;
+}
 
 .wrap {
     position: relative;
@@ -66,6 +68,31 @@ a {
     z-index: 1;
 }
 
+.button{
+    display: block;
+    padding: 10px;
+    margin: 20px;
+    opacity: 10%;
+    text-align: right;
+    color: white;
+    background-color: #85acff;
+    text-decoration: none;
+    font-size: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transition: font-size 0.6s ease, opacity 0.6s ease, transform 0.6s ease, background-color 0.6s ease, box-shadow 0.6s ease;
+    position: relative;
+    animation: floating 3s infinite ease-in-out;
+    transform: translate(-20%, -20%);
+    left: -95%;
+    top: 65%;
+}
+
+.button:hover{
+        opacity: 30%;
+        background-color: #0051ff;
+}
+
 .category {
     display: block;
     width: 150px;
@@ -84,16 +111,32 @@ a {
     transform: translate(-20%, -2%);
 }
 
+
 .category:hover {
     opacity: 90%;
     color: #FFD700;
-    border: 10px ridge;
+    border: 5px ridge;
     border-image-slice: 1;
     background-color: #0051ff;
     animation: lavaAnimation 5s infinite linear, floating 3s infinite ease-in-out reverse; 
     transform: translateY(5%) translateX(-3%) scale(1.1); 
     box-shadow: inset 0 0 10px rgba(10, 0, 0, 0.808);
 }
+
+.main_logo{
+    position: fixed;
+    left: 13.9%;
+    top: -5%;
+    height: 80%;
+    width: auto;
+    padding: 20px;
+    margin: 20px;
+    opacity: 80%;
+    z-index: -999;
+    transition: font-size 0.6s ease, opacity 0.6s ease, transform 0.6s ease, background-color 0.6s ease, box-shadow 0.6s ease border 0.6s ease;
+    animation: floating 3s infinite ease-in-out;
+}
+
 
 
 .sherwin {
@@ -250,22 +293,44 @@ a {
     box-shadow: inset 0 0 10px rgba(10, 0, 0, 0.5);
 }
 
+.logo-container {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.logo {
+    max-width: 5%; /* Adjust the max-width as needed */
+    height: auto;
+    opacity: 80%;
+    display: inline-block;
+}
+
+.logo:hover{
+    opacity: 100%;
+    transition: opacity 0.2s ease-out; /* Adjust the duration and timing function as needed */
+
+}
+
 .header-note {
     font-family: 'Cabin', sans-serif;
     font-weight: bold;
-    text-align: center;
     opacity: 80%;
     font-size: 20px;
     padding: 20px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    text-align: center;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
     background-color: #ff6b89;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     color: #ffd6d6;
 }
+
+
 
 .header-note a {
     color: #ffd6d6;
@@ -460,4 +525,3 @@ body.alternative-view .category {
         border-image-source: linear-gradient(90deg, #ffd900, #ff7300, #ffe54f, #ff7300);
     }
 }
-

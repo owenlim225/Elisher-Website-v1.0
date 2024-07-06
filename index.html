@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5">    
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="index, follow">
+
+    <meta name="Author" content="Sherwin P. Limosnero">
+    <meta name="description" content="Personal portfolio of Sherwin P. Limosnero">
+
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500;700&family=Fira+Sans:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+</head>
+
+<body class="wrap">
+
+    <!-- Header --> 
+    <div id="header" class="header-note">
+        <a href="#work" class="nav-link active"><i class="fas fa-home"></i> Work</a>
+        <img src="assets/personal_logo_transparent.png" alt="logo" class="logo">
+        <a href="#about" class="nav-link"><i class="fas fa-info-circle"></i> About</a>            
+    </div>
+    
+
+
+    <!-- Work Section -->
+    <section id="work" class="portfolio-section active">
+        <button id="colorButton" class="button">Change Color</button>
+        
+            <div class="row-container">
+                <img src="assets/Personal Logo (white + shadow).png" alt="Sherwin P. Limosnero" class="main_logo">
+                <a href="https://soundcloud.com/esphyl" target="_blank" class="category color"><i class="fas fa-music"></i> Music</a>
+                <a href="https://github.com/owenlim225" target="_blank" class="category color"><i class="fab fa-github"></i> Github</a>
+            </div>
+    </section>
+
+    
+
+    <!-- About Section -->
+    <section id="about" class="portfolio-section">
+        
+        <div class="sherwin">
+            <img src="assets/Sherwin.jpg" alt="Sherwin P. Limosnero">
+        </div>
+
+        <div class="center-box">
+            <div class="animated-border-box-glow">
+            </div>
+            <div class="animated-border-box">
+            </div>
+          </div>
+
+        <div class="about">
+            <h1>Sherwin P. Limosnero </h1>
+            <div class="hover_increase">
+                <p>I'm a first year <span class="highlight">BSIT-GD</span> College Student from <span class="highlight">UPHSL</span> with a passion for music, arts, and coding. 
+                    Always ready to create something new.</p>
+                
+                <br>
+
+                <p>I specialize in making background music for Games, instrumental 
+                    beats for Rappers, and music notations for Rondalla groups. 
+                    I also love to make photo manipulations and websites with good 
+                    design and functionality.</p>
+                
+                <br>
+
+    <!-- List of Skills ni Sherwin -->
+                <p>Skills:</p>
+            </div>  
+                <ul class="hover_increase">
+                    <li><i class="fas fa-music"></i> FL Studio</li>
+                    <li><i class="fas fa-paint-brush"></i> Adobe Photoshop</li>
+                    <li><i class="fas fa-music"></i> Musescore</li>
+                    <li><i class="fab fa-html5"></i> HTML</li>
+                    <li><i class="fab fa-css3"></i> CSS</li>
+                    <li><i class="fab fa-python"></i> Python</li>
+                </ul>
+
+                <br>
+
+        </div>
+    </section>
+
+    <!-- Canvas for Bubble Animation -->
+    <canvas id="bubble"></canvas>
+
+    <!-- Overlay for screen darkening -->
+    <div class="overlay"></div>
+
+</body>
+</html>
